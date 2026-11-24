@@ -1,0 +1,1338 @@
+/* =========================================
+   TGS NAVBAR
+   Theme: Purple + Neon Magenta + Violet Glow
+   ========================================= */
+
+:root {
+  --tgs-purple: #6d28d9;
+  --tgs-purple-dark: #35104d;
+  --tgs-violet: #8b5cf6;
+  --tgs-magenta: #e000e8;
+  --tgs-pink: #f0abfc;
+
+  --tgs-white: #ffffff;
+  --tgs-lavender: #f8f4ff;
+  --tgs-light-purple: #f1e8ff;
+
+  --tgs-text: #271334;
+  --tgs-muted: #756681;
+
+  --tgs-border: #eadcf8;
+
+  --tgs-gradient: linear-gradient(
+    120deg,
+    #6d28d9 0%,
+    #8b5cf6 50%,
+    #e000e8 100%
+  );
+
+  --tgs-glow: 0 12px 35px rgba(109, 40, 217, 0.14);
+}
+
+/* =========================================
+   FIXED OUTER NAVBAR
+   ========================================= */
+
+.tgs-header {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: min(1500px, calc(100% - 64px));
+
+  z-index: 1000;
+
+  transition:
+    width 0.3s ease,
+    top 0.3s ease;
+}
+
+.tgs-navbar {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 18px;
+
+  min-height: 78px;
+
+  padding: 10px 16px 10px 22px;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  border: 1px solid rgba(177, 132, 221, 0.26);
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 8px 30px rgba(55, 24, 84, 0.07),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset;
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.tgs-header.is-scrolled .tgs-navbar {
+  box-shadow:
+    0 12px 38px rgba(55, 24, 84, 0.13),
+    0 0 0 1px rgba(139, 92, 246, 0.04);
+}
+
+/* =========================================
+   LOGO
+   ========================================= */
+
+.tgs-logo {
+  display: inline-flex;
+  align-items: center;
+
+  flex-shrink: 0;
+  gap: 12px;
+
+  text-decoration: none;
+  color: var(--tgs-text);
+}
+
+.tgs-logo-mark {
+  font-size: 35px;
+  font-weight: 800;
+  letter-spacing: -2.5px;
+  line-height: 1;
+
+  background: var(--tgs-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.tgs-logo-mark span {
+  color: var(--tgs-magenta);
+}
+
+.tgs-logo-divider {
+  width: 1px;
+  height: 34px;
+  background: var(--tgs-border);
+}
+
+.tgs-logo-text {
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1.55;
+  letter-spacing: 0.65px;
+  color: var(--tgs-text);
+}
+
+/* =========================================
+   DESKTOP NAVIGATION
+   ========================================= */
+
+.tgs-desktop-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  margin-left: auto;
+}
+
+.tgs-nav-link {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  min-height: 46px;
+
+  padding: 0 13px;
+
+  border: 0;
+  border-radius: 13px;
+
+  background: transparent;
+
+  color: #4e405c;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  white-space: nowrap;
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.tgs-nav-link:hover,
+.tgs-nav-link.active {
+  color: var(--tgs-purple);
+  background: linear-gradient(
+    135deg,
+    #f4eaff,
+    #fff0fd
+  );
+
+  box-shadow: 0 3px 15px rgba(139, 92, 246, 0.08);
+}
+
+.tgs-chevron {
+  color: var(--tgs-violet);
+
+  transition: transform 0.25s ease;
+}
+
+.tgs-nav-link.active .tgs-chevron {
+  transform: rotate(180deg);
+  color: var(--tgs-magenta);
+}
+
+.tgs-company-link {
+  padding-inline: 13px;
+}
+
+/* =========================================
+   NAVBAR ACTIONS
+   ========================================= */
+
+.tgs-navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  flex-shrink: 0;
+}
+
+.tgs-search-button {
+  display: grid;
+  place-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid transparent;
+  border-radius: 12px;
+
+  background: transparent;
+  color: var(--tgs-purple);
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.tgs-search-button:hover,
+.tgs-search-button.active {
+  background: var(--tgs-light-purple);
+  border-color: var(--tgs-border);
+}
+
+.tgs-project-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  min-height: 48px;
+
+  padding: 0 20px;
+
+  border-radius: 14px;
+
+  background: var(--tgs-gradient);
+
+  color: var(--tgs-white);
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  box-shadow: 0 7px 18px rgba(109, 40, 217, 0.19);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.tgs-project-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 28px rgba(139, 92, 246, 0.3),
+    0 0 18px rgba(224, 0, 232, 0.12);
+}
+
+.tgs-project-button svg {
+  transition: transform 0.25s ease;
+}
+
+.tgs-project-button:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.tgs-mobile-toggle {
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  border: 1px solid var(--tgs-border);
+  border-radius: 13px;
+
+  background: var(--tgs-lavender);
+  color: var(--tgs-purple);
+
+  cursor: pointer;
+}
+
+/* =========================================
+   SHARED MEGA MENU
+   ========================================= */
+
+.tgs-mega-menu,
+.tgs-resources-menu,
+.tgs-company-menu {
+  position: absolute;
+
+  top: calc(100% + 12px);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translateY(10px) scale(0.99);
+  transform-origin: top center;
+
+  background:
+    radial-gradient(
+      ellipse at top right,
+      rgba(224, 0, 232, 0.055),
+      transparent 40%
+    ),
+    #ffffff;
+
+  border: 1px solid rgba(177, 132, 221, 0.34);
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 22px 65px rgba(47, 17, 69, 0.14),
+    0 0 30px rgba(139, 92, 246, 0.05);
+
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease,
+    visibility 0.22s ease;
+
+  overflow: hidden;
+}
+
+.tgs-mega-menu.visible,
+.tgs-resources-menu.visible,
+.tgs-company-menu.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+/* Top neon line */
+
+.tgs-mega-menu::before,
+.tgs-resources-menu::before,
+.tgs-company-menu::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 7%;
+  right: 7%;
+
+  height: 2px;
+
+  background: var(--tgs-gradient);
+}
+
+/* =========================================
+   PLATFORM / INFRASTRUCTURE / SOLUTIONS
+   ========================================= */
+
+.tgs-mega-menu {
+  left: 0;
+  right: 0;
+
+  display: grid;
+  grid-template-columns: 0.85fr 1.5fr;
+
+  padding: 30px;
+  gap: 30px;
+
+  max-height: min(70vh, 620px);
+  overflow-y: auto;
+}
+
+.tgs-mega-intro {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding: 5px 28px 8px 4px;
+
+  border-right: 1px solid var(--tgs-border);
+  overflow: hidden;
+}
+
+.tgs-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 20px;
+
+  color: var(--tgs-purple);
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  line-height: 1.5;
+}
+
+.tgs-eyebrow-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--tgs-magenta);
+
+  box-shadow: 0 0 12px rgba(224, 0, 232, 0.45);
+}
+
+.tgs-mega-intro h2 {
+  position: relative;
+  z-index: 1;
+
+  margin: 0 0 12px;
+
+  max-width: 330px;
+
+  color: var(--tgs-text);
+
+  font-size: clamp(24px, 2vw, 31px);
+  font-weight: 750;
+  line-height: 1.18;
+  letter-spacing: -1.1px;
+}
+
+.tgs-mega-intro p {
+  position: relative;
+  z-index: 1;
+
+  max-width: 320px;
+
+  margin: 0 0 23px;
+
+  color: var(--tgs-muted);
+
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.tgs-featured-link {
+  position: relative;
+  z-index: 1;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: auto;
+
+  color: var(--tgs-purple);
+
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.tgs-featured-link svg {
+  transition: transform 0.2s ease;
+}
+
+.tgs-featured-link:hover {
+  color: var(--tgs-magenta);
+}
+
+.tgs-featured-link:hover svg {
+  transform: translateX(5px);
+}
+
+.tgs-intro-decoration {
+  position: absolute;
+  right: 0;
+  bottom: -24px;
+
+  color: rgba(139, 92, 246, 0.08);
+
+  pointer-events: none;
+}
+
+/* =========================================
+   MEGA MENU ITEMS
+   ========================================= */
+
+.tgs-mega-items {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  align-content: start;
+  gap: 12px;
+}
+
+.tgs-mega-item {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 13px;
+
+  min-width: 0;
+  min-height: 95px;
+
+  padding: 16px 12px;
+
+  border: 1px solid transparent;
+  border-radius: 16px;
+
+  background: transparent;
+
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  animation: tgs-menu-item-enter 0.32s both;
+  animation-delay: calc(var(--item-index, 0) * 35ms);
+}
+
+@keyframes tgs-menu-item-enter {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tgs-mega-item:hover {
+  background: linear-gradient(
+    135deg,
+    #faf7ff,
+    #fff6ff
+  );
+
+  border-color: #ead7ff;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 22px rgba(109, 40, 217, 0.07);
+}
+
+.tgs-item-icon {
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  width: 44px;
+  height: 44px;
+
+  border-radius: 13px;
+
+  background: linear-gradient(
+    135deg,
+    #f0e7ff,
+    #ffeafa
+  );
+
+  color: var(--tgs-purple);
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.tgs-mega-item:hover .tgs-item-icon {
+  color: var(--tgs-magenta);
+
+  background: linear-gradient(
+    135deg,
+    #eadcff,
+    #ffd9fa
+  );
+
+  box-shadow: 0 0 18px rgba(224, 0, 232, 0.1);
+}
+
+.tgs-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  min-width: 0;
+  flex: 1;
+}
+
+.tgs-item-content strong {
+  color: var(--tgs-text);
+
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.4;
+
+  transition: color 0.2s ease;
+}
+
+.tgs-item-content > span {
+  color: var(--tgs-muted);
+
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.tgs-mega-item:hover .tgs-item-content strong {
+  color: var(--tgs-purple);
+}
+
+.tgs-item-arrow {
+  flex-shrink: 0;
+
+  margin-top: 2px;
+
+  color: #b4a0c9;
+
+  opacity: 0;
+
+  transform: translate(-3px, 3px);
+
+  transition: all 0.2s ease;
+}
+
+.tgs-mega-item:hover .tgs-item-arrow {
+  opacity: 1;
+
+  color: var(--tgs-magenta);
+
+  transform: translate(0, 0);
+}
+
+/* =========================================
+   RESOURCES MEGA MENU
+   ========================================= */
+
+.tgs-resources-menu {
+  left: 0;
+  right: 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 25px;
+
+  padding: 30px;
+
+  max-height: min(75vh, 680px);
+  overflow-y: auto;
+}
+
+.tgs-resource-column {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  min-width: 0;
+}
+
+.tgs-resource-column h3 {
+  margin: 0 0 13px;
+
+  color: #8a739e;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  line-height: 1.5;
+}
+
+.tgs-resource-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  min-height: 38px;
+
+  padding: 8px 10px;
+
+  border-radius: 9px;
+
+  color: #554363;
+
+  font-size: 12px;
+  font-weight: 550;
+  line-height: 1.5;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    padding 0.2s ease;
+}
+
+.tgs-resource-link svg {
+  flex-shrink: 0;
+  opacity: 0;
+
+  color: var(--tgs-magenta);
+
+  transition: opacity 0.2s ease;
+}
+
+.tgs-resource-link:hover {
+  color: var(--tgs-purple);
+
+  background: linear-gradient(
+    90deg,
+    #f6efff,
+    #fff4fe
+  );
+
+  padding-left: 14px;
+}
+
+.tgs-resource-link:hover svg {
+  opacity: 1;
+}
+
+/* Explore resources CTA */
+
+.tgs-all-resources {
+  grid-column: 1 / -1;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-top: 4px;
+  padding: 15px;
+
+  border: 1px solid #eadcf8;
+  border-radius: 15px;
+
+  background: linear-gradient(
+    100deg,
+    #f7f0ff,
+    #fff2fd
+  );
+
+  color: var(--tgs-text);
+
+  text-decoration: none;
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.tgs-all-resources:hover {
+  border-color: #d6b7ff;
+  transform: translateY(-2px);
+}
+
+.tgs-resource-icon {
+  display: grid;
+  place-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  border-radius: 12px;
+
+  color: var(--tgs-purple);
+  background: white;
+}
+
+.tgs-all-resources > span:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  flex: 1;
+}
+
+.tgs-all-resources strong {
+  font-size: 13px;
+}
+
+.tgs-all-resources small {
+  color: var(--tgs-muted);
+  font-size: 11px;
+}
+
+.tgs-all-resources > svg {
+  color: var(--tgs-magenta);
+}
+
+/* =========================================
+   COMPANY DROPDOWN
+   ========================================= */
+
+.tgs-company-menu {
+  right: 190px;
+
+  width: 290px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 12px;
+  gap: 5px;
+}
+
+.tgs-company-menu > a {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  padding: 14px;
+
+  border-radius: 13px;
+
+  color: var(--tgs-purple);
+  text-decoration: none;
+
+  transition: background 0.2s ease;
+}
+
+.tgs-company-menu > a:hover {
+  background: var(--tgs-lavender);
+}
+
+.tgs-company-menu > a > span {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tgs-company-menu strong {
+  color: var(--tgs-text);
+  font-size: 13px;
+}
+
+.tgs-company-menu small {
+  color: var(--tgs-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* =========================================
+   SEARCH PANEL
+   ========================================= */
+
+.tgs-search-panel {
+  position: absolute;
+
+  top: calc(100% + 12px);
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  width: min(500px, 100%);
+
+  padding: 14px 16px;
+
+  border: 1px solid var(--tgs-border);
+  border-radius: 17px;
+
+  background: white;
+
+  box-shadow: var(--tgs-glow);
+
+  color: var(--tgs-purple);
+}
+
+.tgs-search-panel input {
+  flex: 1;
+  min-width: 0;
+
+  padding: 8px 0;
+
+  border: 0;
+  outline: none;
+
+  color: var(--tgs-text);
+  background: transparent;
+
+  font: inherit;
+  font-size: 13px;
+}
+
+.tgs-search-panel input::placeholder {
+  color: #a091b0;
+}
+
+.tgs-search-panel button {
+  padding: 10px 15px;
+
+  border: 0;
+  border-radius: 10px;
+
+  background: var(--tgs-gradient);
+  color: white;
+
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+/* =========================================
+   MOBILE NAVIGATION
+   ========================================= */
+
+.tgs-mobile-menu {
+  display: none;
+}
+
+@media (max-width: 1250px) {
+  .tgs-header {
+    width: calc(100% - 40px);
+  }
+
+  .tgs-navbar {
+    gap: 10px;
+    padding-left: 17px;
+  }
+
+  .tgs-logo-mark {
+    font-size: 30px;
+  }
+
+  .tgs-logo-text {
+    font-size: 8px;
+  }
+
+  .tgs-nav-link {
+    padding-inline: 9px;
+    font-size: 12px;
+  }
+
+  .tgs-project-button {
+    padding-inline: 14px;
+    font-size: 12px;
+  }
+
+  .tgs-search-button {
+    width: 35px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .tgs-desktop-navigation,
+  .tgs-navbar-actions > .tgs-search-button,
+  .tgs-navbar-actions > .tgs-project-button {
+    display: none;
+  }
+
+  .tgs-navbar {
+    min-height: 70px;
+  }
+
+  .tgs-mobile-toggle {
+    display: inline-flex;
+  }
+
+  .tgs-mobile-menu {
+    position: absolute;
+
+    top: calc(100% + 12px);
+    left: 0;
+    right: 0;
+
+    display: block;
+
+    max-height: calc(100dvh - 120px);
+    overflow-y: auto;
+
+    padding: 16px;
+
+    border: 1px solid var(--tgs-border);
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.98);
+
+    box-shadow: var(--tgs-glow);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(8px);
+
+    transition:
+      opacity 0.22s ease,
+      transform 0.22s ease,
+      visibility 0.22s ease;
+  }
+
+  .tgs-mobile-menu.mobile-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateY(0);
+  }
+
+  .tgs-mobile-group {
+    border-bottom: 1px solid #f0e7f8;
+  }
+
+  .tgs-mobile-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding: 15px 10px;
+
+    border: 0;
+    border-radius: 11px;
+
+    background: transparent;
+
+    color: var(--tgs-text);
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 650;
+
+    text-align: left;
+
+    cursor: pointer;
+  }
+
+  .tgs-mobile-link.expanded {
+    color: var(--tgs-purple);
+
+    background: linear-gradient(
+      100deg,
+      #f4eaff,
+      #fff0fd
+    );
+  }
+
+  .tgs-mobile-chevron {
+    color: var(--tgs-violet);
+    transition: transform 0.2s ease;
+  }
+
+  .tgs-mobile-link.expanded .tgs-mobile-chevron {
+    transform: rotate(180deg);
+  }
+
+  .tgs-mobile-submenu {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    padding: 7px 8px 13px 17px;
+
+    animation: tgs-menu-item-enter 0.2s ease both;
+  }
+
+  .tgs-mobile-submenu a {
+    padding: 10px;
+
+    border-radius: 9px;
+
+    color: var(--tgs-muted);
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    text-decoration: none;
+  }
+
+  .tgs-mobile-submenu a:hover {
+    color: var(--tgs-purple);
+    background: var(--tgs-lavender);
+  }
+
+  .tgs-mobile-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 15px;
+    padding: 15px 17px;
+
+    border-radius: 13px;
+
+    background: var(--tgs-gradient);
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: 750;
+    text-decoration: none;
+  }
+
+  .tgs-mega-menu,
+  .tgs-resources-menu,
+  .tgs-company-menu {
+    display: none;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+  .tgs-header {
+    top: 8px;
+    width: calc(100% - 24px);
+  }
+
+  .tgs-navbar {
+    min-height: 64px;
+
+    padding: 8px 10px 8px 14px;
+
+    border-radius: 17px;
+  }
+
+  .tgs-logo {
+    gap: 8px;
+  }
+
+  .tgs-logo-mark {
+    font-size: 29px;
+  }
+
+  .tgs-logo-divider {
+    height: 28px;
+  }
+
+  .tgs-logo-text {
+    font-size: 7px;
+    letter-spacing: 0.35px;
+  }
+
+  .tgs-mobile-toggle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .tgs-mobile-menu {
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .tgs-search-panel {
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .tgs-search-panel input {
+    font-size: 12px;
+  }
+
+  .tgs-search-panel button {
+    padding: 9px 10px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .tgs-header *,
+  .tgs-header *::before,
+  .tgs-header *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================
+   HOME NAVIGATION LINK
+   ========================================= */
+
+.tgs-home-link {
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.tgs-home-link:hover,
+.tgs-home-link:focus-visible {
+  color: var(--tgs-purple);
+  background: linear-gradient(135deg, #f4eaff, #fff0fd);
+  box-shadow: 0 3px 15px rgba(139, 92, 246, 0.12);
+  outline: none;
+}
+
+/* Home link in the mobile menu */
+.tgs-mobile-home {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 15px 10px;
+  border: 0;
+  border-bottom: 1px solid #f0e7f8;
+  border-radius: 11px;
+  background: transparent;
+  color: var(--tgs-text);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.4;
+  text-align: left;
+  text-decoration: none;
+  transition: color 0.25s ease, background 0.25s ease;
+}
+
+.tgs-mobile-home:hover,
+.tgs-mobile-home:focus-visible {
+  color: var(--tgs-purple);
+  background: linear-gradient(100deg, #f4eaff, #fff0fd);
+  outline: none;
+}
+
+/* =========================================
+   ACTIVE PAGE INDICATOR OVERRIDES
+   Appended intentionally: preserves all existing navbar styling.
+========================================= */
+
+.tgs-nav-link.is-route-active {
+  position: relative;
+  color: var(--tgs-purple) !important;
+  background: linear-gradient(135deg, #f4eaff, #fff0fd) !important;
+  box-shadow: 0 3px 15px rgba(139, 92, 246, 0.11) !important;
+}
+
+.tgs-nav-link.is-route-active::after {
+  position: absolute;
+  right: 13px;
+  bottom: 5px;
+  left: 13px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--tgs-gradient);
+  content: "";
+  pointer-events: none;
+}
+
+.tgs-mega-item.is-current-page {
+  border-color: rgba(139, 92, 246, 0.42) !important;
+  background: linear-gradient(135deg, #f4eaff, #fff0fd) !important;
+  box-shadow: inset 3px 0 0 var(--tgs-purple), 0 8px 22px rgba(109, 40, 217, 0.07);
+}
+
+.tgs-mega-item.is-current-page .tgs-item-content strong,
+.tgs-mega-item.is-current-page .tgs-item-arrow {
+  color: var(--tgs-purple) !important;
+  opacity: 1 !important;
+}
+
+.tgs-featured-link.is-current-page {
+  text-decoration: underline;
+  text-decoration-color: var(--tgs-pink);
+  text-underline-offset: 5px;
+}
+
+.tgs-resource-link.is-current-page {
+  color: var(--tgs-purple) !important;
+  padding-left: 14px;
+  background: linear-gradient(90deg, #f4eaff, #fff0fd) !important;
+  font-weight: 750 !important;
+}
+
+.tgs-resource-link.is-current-page svg {
+  opacity: 1 !important;
+}
+
+.tgs-all-resources.is-current-page {
+  border-color: #c9a5f4 !important;
+  box-shadow: inset 3px 0 0 var(--tgs-purple);
+}
+
+.tgs-company-menu > a.is-current-page {
+  background: linear-gradient(135deg, #f4eaff, #fff0fd) !important;
+  box-shadow: inset 3px 0 0 var(--tgs-purple);
+}
+
+.tgs-mobile-link.is-route-active {
+  color: var(--tgs-purple) !important;
+  background: linear-gradient(100deg, #f4eaff, #fff0fd) !important;
+  box-shadow: inset 3px 0 0 var(--tgs-purple);
+}
+
+.tgs-mobile-submenu a.is-current-page,
+.tgs-mobile-all-resources.is-current-page {
+  color: var(--tgs-purple) !important;
+  background: linear-gradient(100deg, #f4eaff, #fff0fd) !important;
+  font-weight: 750 !important;
+}
+
+.tgs-mobile-submenu a.is-current-page {
+  border-radius: 9px;
+  box-shadow: inset 3px 0 0 var(--tgs-purple);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tgs-nav-link.is-route-active::after {
+    transition: none !important;
+  }
+}
+

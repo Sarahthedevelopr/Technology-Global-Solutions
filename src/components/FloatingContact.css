@@ -1,0 +1,252 @@
+/* =========================================
+   TGS FLOATING CONTACT BUTTONS
+   Purple + Violet + Neon Magenta Theme
+========================================= */
+
+.tgs-floating-contact {
+  --contact-gradient: linear-gradient(
+    120deg,
+    #6d28d9 0%,
+    #8b5cf6 50%,
+    #e000e8 100%
+  );
+
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1200;
+
+  display: flex;
+  align-items: center;
+  gap: 0;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(224, 0, 232, 0.35);
+  border-radius: 12px;
+
+  background: #35104d;
+
+  box-shadow:
+    0 6px 22px rgba(53, 16, 77, 0.22),
+    0 0 14px rgba(109, 40, 217, 0.12);
+
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* =========================================
+   COMMON BUTTON STYLE
+========================================= */
+
+.tgs-floating-contact-btn {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  min-height: 38px;
+  padding: 0 11px;
+
+  background: var(--contact-gradient);
+  background-size: 150% 150%;
+  background-position: left center;
+
+  color: #ffffff;
+
+  border: none;
+  text-decoration: none;
+  white-space: nowrap;
+
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 750;
+
+  transition:
+    background-position 0.35s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+}
+
+/* Divider between buttons */
+
+.tgs-floating-contact-btn + .tgs-floating-contact-btn {
+  border-left: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+/* =========================================
+   ICONS
+========================================= */
+
+.tgs-floating-contact-btn svg {
+  width: 15px;
+  height: 15px;
+
+  flex-shrink: 0;
+  color: #ffffff;
+
+  transition: transform 0.25s ease;
+}
+
+/* External arrow */
+
+.tgs-contact-external {
+  display: inline-block;
+
+  color: #ffffff;
+
+  font-size: 11px;
+  line-height: 1;
+
+  transition: transform 0.25s ease;
+}
+
+/* =========================================
+   WHATSAPP HOVER
+========================================= */
+
+.tgs-whatsapp-btn:hover {
+  background-position: right center;
+  filter: brightness(1.08);
+
+  box-shadow:
+    0 0 14px rgba(109, 40, 217, 0.25),
+    0 0 16px rgba(224, 0, 232, 0.18);
+}
+
+.tgs-whatsapp-btn:hover svg {
+  transform: scale(1.1);
+}
+
+/* =========================================
+   TELEGRAM HOVER
+========================================= */
+
+.tgs-telegram-btn:hover {
+  background-position: right center;
+  filter: brightness(1.08);
+
+  box-shadow:
+    0 0 14px rgba(109, 40, 217, 0.25),
+    0 0 16px rgba(224, 0, 232, 0.18);
+}
+
+.tgs-telegram-btn:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* Arrow animation */
+
+.tgs-floating-contact-btn:hover .tgs-contact-external {
+  transform: translate(2px, -2px);
+}
+
+/* =========================================
+   CONTAINER HOVER
+========================================= */
+
+.tgs-floating-contact:hover {
+  border-color: rgba(224, 0, 232, 0.55);
+
+  box-shadow:
+    0 8px 25px rgba(53, 16, 77, 0.25),
+    0 0 18px rgba(109, 40, 217, 0.2),
+    0 0 14px rgba(224, 0, 232, 0.1);
+}
+
+/* Keyboard accessibility */
+
+.tgs-floating-contact-btn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: -3px;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+  .tgs-floating-contact {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .tgs-floating-contact-btn {
+    min-height: 36px;
+    padding: 0 10px;
+    gap: 5px;
+    font-size: 10px;
+  }
+
+  .tgs-floating-contact-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .tgs-floating-contact {
+    right: 10px;
+    bottom: 10px;
+    border-radius: 10px;
+  }
+
+  .tgs-floating-contact-btn {
+    min-height: 35px;
+    gap: 4px;
+    padding: 0 9px;
+    font-size: 9px;
+  }
+
+  .tgs-floating-contact-btn svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .tgs-contact-external {
+    font-size: 10px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 350px) {
+  .tgs-floating-contact {
+    right: 8px;
+    bottom: 8px;
+  }
+
+  .tgs-floating-contact-btn {
+    gap: 3px;
+    padding: 0 7px;
+    font-size: 8px;
+  }
+
+  .tgs-floating-contact-btn svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .tgs-floating-contact,
+  .tgs-floating-contact *,
+  .tgs-floating-contact *::before,
+  .tgs-floating-contact *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
